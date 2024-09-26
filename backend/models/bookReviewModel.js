@@ -16,6 +16,9 @@ const bookReviewSchema = mongoose.Schema(
     },
   },
   {
+    collection: "bookReviews",
+  },
+  {
     timestamps: true,
   }
 );

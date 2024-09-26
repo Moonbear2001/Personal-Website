@@ -34,5 +34,12 @@ dist/
 .env.local
 .env.*.local
 
-# Personal notes
-dev_notes.md
+# Dependency directories
+.pnp/
+.pnp.js
+
+# ESLint cache
+.eslintcache
+
+# Vite-related files
+.vite/

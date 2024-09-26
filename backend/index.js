@@ -3,8 +3,9 @@ import path from "path";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 
-import { connectMongoDB } from "./config/db.js";
+import { connectContactMongoDB, connectMongoDB } from "./config/db.js";
 import bookReviewsRoute from "./routes/bookReviewsRoute.js"
+import contactRoute from "./routes/contactRoute.js"
 
 dotenv.config();
 
@@ -12,14 +13,11 @@ const app = express();
 
 app.use(express.json());
 
-// app.get("/", (req, res) => {
-//   res.send("Hello World");
-// });
-
 const __dirname = path.resolve();
-console.log(__dirname);
 
-app.use("/bookReviews", bookReviewsRoute);
+// Routes
+app.use("/api/v1/bookReviews", bookReviewsRoute);
+app.use("/api/v1/contact", contactRoute);
 
 // Serve static files from the frontend build directory
 app.use(express.static(path.join(__dirname, '/frontend/dist')));
@@ -29,9 +27,9 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/frontend/dist/index.html'));
 });
 
-
 // Exit before opening port if database connection fails
-connectMongoDB();
+// connectMongoDB();
+connectContactMongoDB();
 
 // Start the server
 app.listen(process.env.PORT, () => {

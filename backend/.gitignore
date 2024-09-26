@@ -34,5 +34,7 @@ dist/
 .env.local
 .env.*.local
 
-# Personal notes
-dev_notes.md
+# Process-related files
+pids/
+*.pid
+*.pid.lock
