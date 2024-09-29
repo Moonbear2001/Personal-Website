@@ -35,4 +35,4 @@ dist/
 .env.*.local
 
 # Personal notes
-dev_notes.md
+# dev_notes.md
