@@ -2,8 +2,9 @@
 
 NEXT SESSION
 
-- make a branch for production and a branch for dev
-- switch current changes to dev branch
+DONE make a branch for production and a branch for dev
+doneswitch current changes to dev branch
+
 - set up render and netlify to pull from dev branch
 
 - crop pictures so that they fit nicely
