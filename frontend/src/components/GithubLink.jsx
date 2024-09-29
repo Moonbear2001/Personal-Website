@@ -1,5 +1,5 @@
 import { Box, Link, Image } from "@chakra-ui/react";
-import githubLogo from "../assets/github-logo-circular.png"
+import githubLogo from "/logos/github-logo-circular.png";
 
 const GithubLink = () => {
   return (
@@ -14,6 +14,6 @@ const GithubLink = () => {
       </Link>
     </Box>
   );
-}
+};
 
 export default GithubLink;
