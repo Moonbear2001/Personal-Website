@@ -14,8 +14,8 @@ const ResumeSection = ({ title, data, CardComponent }) => {
   // bg={timelineColors[type]}
 
   return (
-    <Box p={4} mb={8} rounded={"lg"}>
-      <Heading as="h2" size="lg" mb={4}>
+    <Box p={4} rounded={"lg"}>
+      <Heading fontSize="4xl" mb={4}>
         {title}
       </Heading>
       <Box>{cardComponents}</Box>

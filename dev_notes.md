@@ -7,8 +7,9 @@ doneswitch current changes to dev branch
 
 - set up render and netlify to pull from dev branch
 
-- crop pictures so that they fit nicely
-- remove bg on some pics
+DONE crop pictures so that they fit nicely
+DONE remove bg on some pics
+
 - make pictures links
 
 - plan long term solution for resume.json

@@ -1,16 +1,16 @@
 import { Box } from "@chakra-ui/react";
 
 import ResumeSection from "./ResumeSection";
-import EducationCard from "./EducationCard";
-import EmploymentCard from "./EducationCard";
-import ProjectCard from "./EducationCard";
-import InternshipCard from "./EducationCard";
+import EducationCard from "./cards/EducationCard";
+import EmploymentCard from "./cards/EmploymentCard";
+import ProjectCard from "./cards/ProjectCard";
+import InternshipCard from "./cards/InternshipCard";
 import { getResumeData } from "./parseResume";
 
 const Resume = () => {
   const resumeData = getResumeData();
   return (
-    <Box>
+    <Box mb={200}>
       <ResumeSection
         title="Education"
         type="education"

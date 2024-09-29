@@ -39,7 +39,7 @@ const resumeData = {
         state: "California",
         country: "USA",
       },
-      logo: "/logos/El-Toro-Logo.jpg",
+      logo: "/logos/El-Toro-Logo.png",
     },
     {
       institution: "Lycée Fenelon",
@@ -55,7 +55,7 @@ const resumeData = {
         state: "Texas",
         country: "France",
       },
-      logo: "/logos/Lycee-Fenelon-Logo.jpg",
+      logo: "/logos/Lycee-Fenelon-Logo.png",
     },
   ],
   projects: [
@@ -64,10 +64,10 @@ const resumeData = {
       role: "Lead Developer",
       startDate: "2024-9-01",
       endDate: null,
-      website: null,
+      website: "desmondroberts.com",
       description: [
         "This very website!",
-        "I built this website to showcase my technical skills, projects, resume, and the various services I offer.",
+        "I built this website to showcase my technical skills, projects, resume, and the various services I offer.  However, it has grown into quite the piece of software, with a powerful backend for managing my book, movie, and TV show reviews.",
         "Built using the MERN (MongoDB, Express.js, React, and Node.js) stack. ChakraUI (a React component library) is used on the frontend. The frontend of the website is hosted on Netlify and the backend is hosted on Render.",
       ],
       logo: "/logos/Personal-Website-Logo.png",
@@ -89,7 +89,9 @@ const resumeData = {
       website:
         "https://store.steampowered.com/app/2929400/Museum_of_Immersive_Art/",
       description: [
-        "The Museum of Immersive Art is a 2D platformer developed as a senior design project by myself and a group of 3 of my friends. The team consisted of a Team Lead, a Lead Developer (myself), a gameplay/level designer, and an artist. The game was developed using the Godot game engine over the course of a semester and published on Steam. It can be downloaded and played right now from the Steam website.",
+        "The Museum of Immersive Art is a 2D platformer developed as a senior design project by myself and a group of 3 of my friends. The team consisted of a Team Lead, a Lead Developer (myself), a gameplay/level designer, and an artist",
+        "The game was developed using the Godot game engine over the course of a semester and published on Steam.",
+        "It can be downloaded and played right now from the Steam website!",
       ],
       logo: "/logos/MOEM-Logo.png",
       technologies: ["Godot", "GDScript"],
@@ -151,8 +153,7 @@ const resumeData = {
       logo: "/logos/Language-Door-Logo.png",
     },
     {
-      company:
-        "Rice University CLIC (Center for Languages and Intercultural Communication",
+      company: "Rice University CLIC",
       role: "Assistant Professor / French Tutor",
       startDate: "2021-09-01",
       endDate: "2024-08-01",
@@ -163,11 +164,12 @@ const resumeData = {
         country: "USA",
       },
       description: [
+        "CLIC stands for 'Center for Languages and Intercultural Communication'",
         "I used my fluency in French to work for Rice University's french department in a variety of capacities.",
         "Language consultant: I worked with 3-6 groups of 2 students per group in highly personalized French teaching/practice sessions. I was free to plan and execute my own lessons.",
         "Assistant Professor: I served as a substitute professor during times when French professors were unavailable. I was given lesson plans and taught multiple classes of 200 level French students in written and oral skills.",
       ],
-      logo: "/logos/Rice-CLIC-Logo.jpg",
+      logo: "/logos/Rice-CLIC-Logo.png",
     },
     {
       company: "Rice University Recreation Center",
@@ -191,7 +193,7 @@ const resumeData = {
       role: "Fresh Produce Associate",
       startDate: "2022-08-01",
       endDate: "2024-08-01",
-      website: null,
+      website: "https://www.walmart.com/store/5644-irvine-ca",
       location: {
         city: "Irvine",
         state: "California",

@@ -7,11 +7,11 @@ import {
   Flex,
   Text,
   Box,
-  Heading,
 } from "@chakra-ui/react";
 import LinkedInLink from "../components/LinkedInLink";
 import GithubLink from "../components/GithubLink";
 import LinkCard from "../components/LinkCard";
+import CustomHeading from "../components/CustomHeading";
 
 const cards = [
   {
@@ -54,9 +54,7 @@ function HomePage() {
     <Container maxWidth="1200px" p={4} centerContent>
       <Box bg="gray.300" mx={10} position="relative">
         <Flex as="header" justify="space-between" align="center">
-          <Heading fontSize="72px" mt={5} color="gray.900">
-            Welcome.
-          </Heading>
+          <CustomHeading text="Welcome." />
           <HStack>
             <LinkedInLink />
             <GithubLink />
