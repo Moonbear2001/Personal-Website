@@ -1,10 +1,18 @@
-import { Divider, Link, LinkBox, Heading, Text, LinkOverlay } from '@chakra-ui/react';
+import {
+  Divider,
+  Link,
+  LinkBox,
+  Heading,
+  Text,
+  LinkOverlay,
+} from "@chakra-ui/react";
+import PropTypes from "prop-types";
 
 const LinkCard = ({ title, description, link }) => {
   return (
-    <LinkBox 
+    <LinkBox
       bg="gray.100"
-      maxW="md" 
+      maxW="md"
       p="5"
       borderWidth="2px"
       borderColor="black"
@@ -18,15 +26,19 @@ const LinkCard = ({ title, description, link }) => {
         <Heading size="md" mb={2} color="gray.700">
           {title}
         </Heading>
-        
       </LinkOverlay>
-      <Divider/>
+      <Divider />
       <Text mt={2} fontSize="sm" color="gray.700">
         {description}
       </Text>
     </LinkBox>
-    
   );
-}
+};
+
+LinkCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+};
 
 export default LinkCard;

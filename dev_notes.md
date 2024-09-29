@@ -2,33 +2,23 @@
 
 NEXT SESSION
 
-DONE make a branch for production and a branch for dev
-doneswitch current changes to dev branch
-
-- set up render and netlify to pull from dev branch
-
-DONE crop pictures so that they fit nicely
-DONE remove bg on some pics
-
-- make pictures links
-
-- plan long term solution for resume.json
-
-  - maybe should move to backend as a submodule for the future
-  - cant rly stay in front, makes no sense there
+- set up render and netlify to pull from prod branch
 
 - finalize contact me page, fix frontend formatting
 - make it send an email to be when contacted
 
 LONG TERM
 
-High Prio
+Order of business
 
 - portfolio
 - my interests, can claim app is full stack
 
-Low Prio
+In order or high priority to low
 
+- add some animation/indicator that logos in Resume are links
+- timeline feature bars not correctly positioned in about me page
+- plan long term solution for resume.json (needs updating from resumeData.js)
 - github actions/some kind of testing pipeline
 - set up custom domain/think about another idea
 - back button to home page

@@ -1,17 +1,6 @@
-import {
-  Container,
-  Image,
-  Grid,
-  GridItem,
-  HStack,
-  Flex,
-  Text,
-  Box,
-} from "@chakra-ui/react";
-import LinkedInLink from "../components/LinkedInLink";
-import GithubLink from "../components/GithubLink";
+import { Container, Image, Grid, GridItem, Text, Box } from "@chakra-ui/react";
 import LinkCard from "../components/LinkCard";
-import CustomHeading from "../components/CustomHeading";
+import PageHeader from "../components/PageHeader";
 
 const cards = [
   {
@@ -41,11 +30,13 @@ const cards = [
     title: "My Interests",
     description:
       "In case your curious about what books, video games, sports, TV shows, and movies I’m passionate about.",
+    link: "/interests",
   },
   {
     title: "Contact Me",
     description:
-      "Reach out for any reason whatsoever! Tutoring inquiries, freelancing opportunities, or just to say hi.",
+      "Reach out for any reason whatsoever! Tutoring inquiries, freelancing opportunities, feedback on the website, or just to say hi.",
+    link: "/contact",
   },
 ];
 
@@ -53,13 +44,7 @@ function HomePage() {
   return (
     <Container maxWidth="1200px" p={4} centerContent>
       <Box bg="gray.300" mx={10} position="relative">
-        <Flex as="header" justify="space-between" align="center">
-          <CustomHeading text="Welcome." />
-          <HStack>
-            <LinkedInLink />
-            <GithubLink />
-          </HStack>
-        </Flex>
+        <PageHeader text="Welcome." />
 
         <Text maxW="600px" mb={8} color="gray.700">
           I’m{" "}

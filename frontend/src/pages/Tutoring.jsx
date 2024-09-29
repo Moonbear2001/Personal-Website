@@ -1,9 +1,14 @@
+import { Container, Box } from "@chakra-ui/react";
+import PageHeader from "../components/PageHeader";
+
 const Tutoring = () => {
   return (
-    <div>Tutoring</div>
-  )
-}
+    <Container maxWidth="1200px" p={4} centerContent>
+      <Box bg="gray.300" mx={10} position="relative">
+        <PageHeader text="Tutoring." />
+      </Box>
+    </Container>
+  );
+};
 
 export default Tutoring;
-
-// Include link to contact me

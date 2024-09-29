@@ -1,6 +1,5 @@
 import { Divider, Box, Flex, Text } from "@chakra-ui/react";
 import { getTimelineData } from "../resume/parseResume";
-import timelineColors from "./timelineConstants";
 import TimelineBar from "./TimelineBar";
 
 const scrollToSection = (id) => {
