@@ -5,7 +5,8 @@ import Contact from "./pages/Contact";
 import Tutoring from "./pages/Tutoring";
 import About from "./pages/About";
 import Freelance from "./pages/Freelance";
-import Interests from "./pages/Interests";
+import BookReviews from "./pages/BookReviews";
+import BookReviewEntry from "./pages/BookReviewEntry";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
       <Route path="/contact" element={<Contact />} />
       <Route path="/tutoring" element={<Tutoring />} />
       <Route path="/freelance" element={<Freelance />} />
-      <Route path="/interests" element={<Interests />} />
+      <Route path="/bookReviews" element={<BookReviews />} />
+      <Route path="/bookReviewEntry" element={<BookReviewEntry />} />
     </Routes>
   );
 }

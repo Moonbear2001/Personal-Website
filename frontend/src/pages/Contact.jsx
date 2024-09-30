@@ -10,13 +10,8 @@ import {
   useToast,
   Text,
   Container,
-  Flex,
-  HStack,
 } from "@chakra-ui/react";
-import CustomHeading from "../components/CustomHeading";
-import LinkedInLink from "../components/LinkedInLink";
-import GithubLink from "../components/GithubLink";
-import PageHeader from "../components/PageHeader";
+import PageHeader from "../components/header/PageHeader";
 
 const ContactReasons = Object.freeze({
   TUTORING: "Tutoring",
@@ -28,7 +23,7 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [reason, setReason] = useState("");
-  const [customReason, setCustomReason] = useState("");
+  const [customReason, setCustomReason] = useState("N/A");
   const [message, setMessage] = useState("");
 
   const toast = useToast();
@@ -37,11 +32,6 @@ const Contact = () => {
     event.preventDefault();
 
     const submission = { name, email, reason, customReason, message };
-    console.log(name);
-    console.log(email);
-    console.log(reason);
-    console.log(customReason);
-    console.log(message);
 
     try {
       const response = await fetch("/api/v1/contact", {
@@ -51,14 +41,10 @@ const Contact = () => {
         },
         body: JSON.stringify(submission),
       });
-
-      // if (!response.ok) {
-      //   console.log("response not ok");
-      //   throw new Error("Network response was not ok.");
-      // }
-
+      if (!response.ok) {
+        throw new Error("Network response was not ok.");
+      }
       const result = await response.json();
-      console.log(result.message);
 
       toast({
         title: "Thanks!",
@@ -67,28 +53,31 @@ const Contact = () => {
         duration: 5000,
         isClosable: true,
       });
-      setName("");
-      setEmail("");
-      setReason("");
-      setCustomReason("");
-      setMessage("");
     } catch (error) {
       toast({
         title: "Yikes!",
-        // description: "An error occurred...try again later.",
-        description: error.message,
+        description: "An error occurred...try again later.",
         status: "error",
         duration: 5000,
         isClosable: true,
       });
-      console.log(error);
     }
+    setName("");
+    setEmail("");
+    setReason("");
+    setCustomReason("");
+    setMessage("");
   };
 
   return (
     <Container maxWidth="1200px" p={4} centerContent>
       <Box bg="gray.300" mx={10} position="relative">
-        <PageHeader text="Reach out." />
+        <PageHeader
+          text="Reach out."
+          showQuote={false}
+          randomQuote={false}
+          comingSoon={false}
+        />
 
         <Text maxW="600px" pt={4} pb={2} color="gray.700">
           Why contact me?

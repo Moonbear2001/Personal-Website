@@ -1,6 +1,6 @@
 import { Container, Image, Grid, GridItem, Text, Box } from "@chakra-ui/react";
-import LinkCard from "../components/LinkCard";
-import PageHeader from "../components/PageHeader";
+import LinkCard from "../components/header/LinkCard";
+import PageHeader from "../components/header/PageHeader";
 
 const cards = [
   {
@@ -27,10 +27,10 @@ const cards = [
     link: "/freelance",
   },
   {
-    title: "My Interests",
+    title: "Book Reviews",
     description:
-      "In case your curious about what books, video games, sports, TV shows, and movies I’m passionate about.",
-    link: "/interests",
+      "Maybe I've read your favorite book, check to see if I've read it and what I thought of it.",
+    link: "/bookReviews",
   },
   {
     title: "Contact Me",
@@ -44,7 +44,7 @@ function HomePage() {
   return (
     <Container maxWidth="1200px" p={4} centerContent>
       <Box bg="gray.300" mx={10} position="relative">
-        <PageHeader text="Welcome." />
+        <PageHeader text="Welcome." quote={false} />
 
         <Text maxW="600px" mb={8} color="gray.700">
           I’m{" "}

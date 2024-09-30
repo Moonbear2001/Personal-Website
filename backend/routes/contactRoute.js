@@ -1,11 +1,19 @@
 import express from "express";
-import mongoose from "mongoose";
-import { saveMessage } from "../controllers/contactController.js"
-
+import { handleMsg } from "../controllers/contactController.js";
+import { rateLimit } from "express-rate-limit";
 
 const router = express.Router();
 
-// Save a message
-router.post("/", saveMessage);
+// // Limit users to 2 contacts per minute
+// const limiter = rateLimit({
+//   windowMs: 60 * 1000,
+//   max: 2,
+//   message: "Too many requests, please try again later.",
+// });
+
+// // Apply to your contact route
+// router.post("/contact", limiter, handleMsg);
+
+router.post("/", handleMsg);
 
 export default router;

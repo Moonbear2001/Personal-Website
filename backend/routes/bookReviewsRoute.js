@@ -1,21 +1,31 @@
 import express from "express";
-import { getBookReviews, getBookReview, createBookReview, updateBookReview, deleteBookReview } from "../controllers/bookReviewController.js"
+import {
+  getAllBookReviews,
+  getBookReviewById,
+  getBookReviewByTitle,
+  createBookReview,
+  updateBookReviewById,
+  deleteBookReviewById,
+} from "../controllers/bookReviewController.js";
 
 const router = express.Router();
 
 // Get all book reviews from the database
-router.get("/", getBookReviews);
+router.get("/", getAllBookReviews);
 
 // Save a new review
 router.post("/", createBookReview);
 
-// Get a book review
-router.get("/:id", getBookReview);
+// Get a book review by id
+router.get("/:id", getBookReviewById);
 
-// Update a book review
-router.put("/:id", updateBookReview);
+// Get a book review by title
+router.get("/title/:title", getBookReviewByTitle);
 
-// Delete a book
-router.delete("/:id", deleteBookReview);
+// Update a book review by id
+router.put("/:id", updateBookReviewById);
+
+// Delete a book review by id
+router.delete("/:id", deleteBookReviewById);
 
 export default router;

@@ -3,16 +3,20 @@
 NEXT SESSION
 
 - set up render and netlify to pull from prod branch
-
-- finalize contact me page, fix frontend formatting
-- make it send an email to be when contacted
+- fix graph in about me page
+- design view for portfolio
+- design view for my book reviews page
+- plug into LoL api for rank tracker
+- review entry form is rough around the edges
+- weird proxy errors, randomly works then doesn't
+- think WAAAY ahead in future for book info, decide on final db format
 
 LONG TERM
 
 Order of business
 
 - portfolio
-- my interests, can claim app is full stack
+- my book reviews, can claim app is full stack
 
 In order or high priority to low
 
@@ -21,4 +25,4 @@ In order or high priority to low
 - plan long term solution for resume.json (needs updating from resumeData.js)
 - github actions/some kind of testing pipeline
 - set up custom domain/think about another idea
-- back button to home page
+- custom toast

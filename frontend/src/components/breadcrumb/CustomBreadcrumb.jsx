@@ -10,7 +10,7 @@ const CustomBreadcrumb = () => {
     <Box width="fit-content">
       <Breadcrumb fontWeight="medium" fontSize="sm">
         <Text fontSize="1xl" pr={2}>
-          user@des.desktop ~ ${" "}
+          user@website ~ ${" "}
         </Text>
         <CustomBreadcrumbItem to="/" text="Home" />
         {pathnames.map((name, index) => {

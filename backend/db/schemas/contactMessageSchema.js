@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const contactMessageSchema = mongoose.Schema(
+const contactMessageSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -22,12 +22,14 @@ const contactMessageSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    iv: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
   }
 );
 
-const ContactMessage = mongoose.model("ContactMessage", contactMessageSchema);
-
-export default ContactMessage;
+export default contactMessageSchema;
