@@ -14,6 +14,7 @@ const router = express.Router();
 // // Apply to your contact route
 // router.post("/contact", limiter, handleMsg);
 
+// Save a message to the db
 router.post("/", handleMsg);
 
 export default router;

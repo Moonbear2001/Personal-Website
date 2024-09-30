@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 
 import bookReviewsRoute from "./routes/bookReviewsRoute.js";
 import contactRoute from "./routes/contactRoute.js";
+import quoteRoute from "./routes/quoteRoute.js";
 
 import connectDB from "./db/db.js";
 
@@ -18,6 +19,7 @@ const __dirname = path.resolve();
 // Routes
 app.use("/api/v1/bookReviews", bookReviewsRoute);
 app.use("/api/v1/contact", contactRoute);
+app.use("/api/v1/quote", quoteRoute);
 
 // Serve static files from the frontend build directory
 app.use(express.static(path.join(__dirname, "/frontend/dist")));

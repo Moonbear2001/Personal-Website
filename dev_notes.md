@@ -9,7 +9,9 @@ NEXT SESSION
 - plug into LoL api for rank tracker
 - review entry form is rough around the edges
 - weird proxy errors, randomly works then doesn't
-- think WAAAY ahead in future for book info, decide on final db format
+- expand quotes, should be able to put james hawkins quote, take care of no author case?
+- typing animation for quotes on new pages
+- Future ideas: Get all quotes from an author, Get all quotes from a book, for quote API
 
 LONG TERM
 
