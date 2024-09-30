@@ -7,12 +7,21 @@ const Quote = ({ author, quote, source }) => {
       <Text fontSize="xl" mb={2}>
         &quot;{quote}&quot;
       </Text>
-      <Text fontSize="md" mb={6} paddingLeft="10">
-        - {author},{" "}
-        <Text as="span" fontStyle="italic">
-          {source}
+      {author ? (
+        <Text fontSize="md" mb={6} paddingLeft="10">
+          - {author},{" "}
+          <Text as="span" fontStyle="italic">
+            {source}
+          </Text>
         </Text>
-      </Text>
+      ) : (
+        <Text fontSize="md" mb={6} paddingLeft="10">
+          -{" "}
+          <Text as="span" fontStyle="italic">
+            {source}
+          </Text>
+        </Text>
+      )}
     </Box>
   );
 };

@@ -9,7 +9,7 @@ NEXT SESSION
 - plug into LoL api for rank tracker
 - review entry form is rough around the edges
 - weird proxy errors, randomly works then doesn't
-- expand quotes, should be able to put james hawkins quote, take care of no author case?
+- expand quotes, should be able to put james hawkins quote, take care of no author case? take care of no source case?
 - typing animation for quotes on new pages
 - Future ideas: Get all quotes from an author, Get all quotes from a book, for quote API
 

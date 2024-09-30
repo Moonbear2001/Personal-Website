@@ -5,12 +5,13 @@ import QuoteModel from "../db/models/quoteModel.js";
 export const getRandomQuote = async (req, res) => {
   QuoteModel.aggregate([{ $sample: { size: 1 } }])
     .then((result) => {
-      if (result.length > 0) {
-        console.log(result[0]); // This is the random quote
-      }
+      console.log("Result in backend: ", result);
+      res.json(result[0]);
     })
-    .catch((err) => {
-      console.error(err);
+    .catch((error) => {
+      res
+        .status(500)
+        .send({ message: "Error getting random quote.", error: error.message });
     });
 };
 
@@ -20,7 +21,8 @@ export const saveNewQuote = async (req, res) => {
     const savedQuote = await newQuote.save();
     return res.status(201).send(savedQuote);
   } catch (error) {
-    console.log(error.message);
-    res.status(500).send({ message: error.message });
+    res
+      .status(500)
+      .send({ message: "Error saving new quote.", error: error.message });
   }
 };

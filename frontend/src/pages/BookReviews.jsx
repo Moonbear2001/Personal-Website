@@ -49,7 +49,12 @@ const BookReviews = () => {
   return (
     <Container maxWidth="1200px" p={4} centerContent mb={500}>
       <Box bg="gray.300" mx={10} position="relative">
-        <PageHeader text="Book reviews." />
+        <PageHeader
+          text="Book reviews."
+          showQuote={true}
+          randomQuote={true}
+          comingSoon={false}
+        />
         <Text whiteSpace="pre-wrap" mb={8} color="gray.700">
           {blurb}
         </Text>

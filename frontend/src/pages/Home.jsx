@@ -44,7 +44,12 @@ function HomePage() {
   return (
     <Container maxWidth="1200px" p={4} centerContent>
       <Box bg="gray.300" mx={10} position="relative">
-        <PageHeader text="Welcome." quote={false} />
+        <PageHeader
+          text="Welcome."
+          showQuote={false}
+          randomQuote={false}
+          comingSoon={false}
+        />
 
         <Text maxW="600px" mb={8} color="gray.700">
           I’m{" "}

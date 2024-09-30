@@ -67,7 +67,7 @@ const resumeData = {
       website: "desmondroberts.com",
       description: [
         "This very website!",
-        "I built this website to showcase my technical skills, projects, resume, and the various services I offer.  However, it has grown into quite the piece of software, with a powerful backend for managing my book, movie, and TV show reviews.",
+        "I built this website to showcase my technical skills, projects, resume, and the various services I offer.  However, it has grown into quite the piece of software, with a powerful backend for tracking when I read books and my reviews of them. I am very happy with the result.",
         "Built using the MERN (MongoDB, Express.js, React, and Node.js) stack. ChakraUI (a React component library) is used on the frontend. The frontend of the website is hosted on Netlify and the backend is hosted on Render.",
       ],
       logo: "/logos/Personal-Website-Logo.png",
