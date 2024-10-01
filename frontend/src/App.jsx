@@ -18,6 +18,9 @@ function App() {
       <Route path="/tutoring" element={<Tutoring />} />
       <Route path="/freelance" element={<Freelance />} />
       <Route path="/bookReviews" element={<BookReviews />} />
+      <Route path="/bookReviews/neuromancer" element={<BookReviews />} />
+      <Route path="/bookReviews/gunslinger" element={<BookReviews />} />
+      <Route path="/bookReviews/hyperion" element={<BookReviews />} />
       <Route path="/bookReviewEntry" element={<BookReviewEntry />} />
     </Routes>
   );

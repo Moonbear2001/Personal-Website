@@ -52,7 +52,6 @@ const PageHeader = ({ text, showQuote, randomQuote, comingSoon, quote }) => {
           source={comingSoonQuote.source}
         />
       )}
-      {console.log("in the jsx, here first?")}
       {showQuote && randomQuote && (
         <Quote
           comingSoon={false}

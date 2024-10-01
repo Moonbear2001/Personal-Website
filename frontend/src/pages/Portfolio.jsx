@@ -1,7 +1,11 @@
 import { Container, Box } from "@chakra-ui/react";
 import PageHeader from "../components/header/PageHeader";
 
-// Add a quote for the portolio
+const quote = {
+  quote:
+    "Most of the good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program.",
+  author: "Linus Torvalds",
+};
 
 const Portfolio = () => {
   return (
@@ -12,6 +16,7 @@ const Portfolio = () => {
           showQuote={true}
           randomQuote={false}
           comingSoon={false}
+          quote={quote}
         />
       </Box>
     </Container>

@@ -11,7 +11,7 @@ const quote = {
   author: "Amor Towles",
   source: "A Gentleman in Moscow",
   quote:
-    "if a man does not master his circumstances then he is bound to be mastered by them.",
+    "If a man does not master his circumstances, then he is bound to be mastered by them.",
 };
 
 const About = () => {

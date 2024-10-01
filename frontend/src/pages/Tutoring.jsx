@@ -1,7 +1,7 @@
 import { Container, Box } from "@chakra-ui/react";
 import PageHeader from "../components/header/PageHeader";
 
-quote = {
+const quote = {
   author: "Bill Gates",
   quote:
     "A computer is like a violin, you can imagine it making beautiful music, but you have to learn how to play it.",
