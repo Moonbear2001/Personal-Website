@@ -1,5 +1,6 @@
 import { Container, Box } from "@chakra-ui/react";
 import PageHeader from "../components/header/PageHeader";
+import ComingSoon from "../components/ComingSoon"
 
 const quote = {
   author: "Bill Gates",
@@ -18,6 +19,7 @@ const Tutoring = () => {
           comingSoon={true}
         />
       </Box>
+      <ComingSoon/>
     </Container>
   );
 };

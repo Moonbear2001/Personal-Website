@@ -1,0 +1,6 @@
+[submodule "backend/data/resume-json"]
+	path = backend/data/resume-json
+	url = git@github.com:Moonbear2001/resume-json.git
+[submodule "backend/data/projects-json"]
+	path = backend/data/projects-json
+	url = git@github.com:Moonbear2001/projects-json.git

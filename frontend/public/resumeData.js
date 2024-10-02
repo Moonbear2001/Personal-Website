@@ -165,4 +165,6 @@ const resumeData = {
   ],
 };
 
+console.log(JSON.stringify(resumeData));
+
 export default resumeData;

@@ -16,17 +16,6 @@ const cards = [
     link: "/portfolio",
   },
   {
-    title: "Tutoring",
-    description: "Find out about what I can teach and my experience doing it.",
-    link: "/tutoring",
-  },
-  {
-    title: "Freelance Work",
-    description:
-      "I would love to build a full-stack application to meet your business's needs.",
-    link: "/freelance",
-  },
-  {
     title: "Book Reviews",
     description:
       "Maybe I've read your favorite book, check to see if I've read it and what I thought of it.",
@@ -37,6 +26,17 @@ const cards = [
     description:
       "Reach out for any reason whatsoever! Tutoring inquiries, freelancing opportunities, feedback on the website, or just to say hi.",
     link: "/contact",
+  },
+  {
+    title: "Tutoring",
+    description: "Find out about what I can teach and my experience doing it.",
+    link: "/tutoring",
+  },
+  {
+    title: "Freelance Work",
+    description:
+      "I would love to build a full-stack application to meet your business's needs.",
+    link: "/freelance",
   },
 ];
 

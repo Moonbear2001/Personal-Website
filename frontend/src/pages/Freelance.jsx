@@ -1,5 +1,7 @@
 import { Container, Box } from "@chakra-ui/react";
 import PageHeader from "../components/header/PageHeader";
+import ComingSoon from "../components/ComingSoon";
+
 
 const Freelance = () => {
   return (
@@ -12,6 +14,7 @@ const Freelance = () => {
           comingSoon={true}
         />
       </Box>
+      <ComingSoon/>
     </Container>
   );
 };

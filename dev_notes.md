@@ -2,6 +2,7 @@
 
 NEXT SESSION
 
+- get google app pw working on another device
 - set up render and netlify to pull from prod branch
 - fix graph in about me page
 - design view for portfolio
