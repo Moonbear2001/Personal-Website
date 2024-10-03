@@ -1,7 +1,7 @@
-import React from "react";
+import ComingSoon from "../../components/ComingSoon";
 
 const Neuromancer = () => {
-  return <div>Neuromancer</div>;
+  return <ComingSoon />;
 };
 
 export default Neuromancer;

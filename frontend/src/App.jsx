@@ -7,6 +7,9 @@ import About from "./pages/About";
 import Freelance from "./pages/Freelance";
 import BookReviews from "./pages/BookReviews";
 import BookReviewEntry from "./pages/BookReviewEntry";
+import Neuromancer from "./pages/bookHighlightPages/Neuromancer";
+import Gunslinger from "./pages/bookHighlightPages/Gunslinger";
+import Hyperion from "./pages/bookHighlightPages/Hyperion";
 
 function App() {
   return (
@@ -18,9 +21,9 @@ function App() {
       <Route path="/tutoring" element={<Tutoring />} />
       <Route path="/freelance" element={<Freelance />} />
       <Route path="/bookReviews" element={<BookReviews />} />
-      <Route path="/bookReviews/neuromancer" element={<BookReviews />} />
-      <Route path="/bookReviews/gunslinger" element={<BookReviews />} />
-      <Route path="/bookReviews/hyperion" element={<BookReviews />} />
+      <Route path="/bookReviews/neuromancer" element={<Neuromancer />} />
+      <Route path="/bookReviews/gunslinger" element={<Gunslinger />} />
+      <Route path="/bookReviews/hyperion" element={<Hyperion />} />
       <Route path="/bookReviewEntry" element={<BookReviewEntry />} />
     </Routes>
   );

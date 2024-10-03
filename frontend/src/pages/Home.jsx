@@ -82,7 +82,7 @@ function HomePage() {
           justifyContent="center"
         >
           <Image
-            src="musashi-eating-trans-bg.png"
+            src="/musashi-eating-trans-bg.png"
             alt="Footer Image"
             width={["60%", "50%", "30%"]}
             maxWidth="600px"

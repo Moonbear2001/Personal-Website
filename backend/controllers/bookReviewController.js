@@ -134,3 +134,32 @@ export const deleteBookReviewById = async (req, res) => {
     res.send(500).send({ message: error.message });
   }
 };
+
+// Get what percentage of books fall into each genre
+export const getBookReviewGenres = async (req, res) => {
+  try {
+    const genreData = await BookReviewModel.aggregate([
+      {
+        $project: {
+          genres: 1, // Only project the genres field
+        },
+      },
+      {
+        $unwind: "$genres", // Unwind the genres array
+      },
+      {
+        $group: {
+          _id: "$genres", // Group by genre
+          count: { $sum: 1 }, // Count the number of occurrences
+        },
+      },
+      {
+        $sort: { count: -1 }, // Sort by count in descending order
+      },
+    ]);
+    console.log("Genre data in backend: ", genreData);
+    res.json(genreData);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};

@@ -213,6 +213,7 @@ const Contact = () => {
             type="submit"
             borderWidth="2px"
             borderColor="black"
+            textColor={"white"}
           >
             Send Message
           </Button>

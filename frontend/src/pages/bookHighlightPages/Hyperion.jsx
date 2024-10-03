@@ -1,7 +1,7 @@
-import React from "react";
+import ComingSoon from "../../components/ComingSoon";
 
 const Hyperion = () => {
-  return <div>Hyperion</div>;
+  return <ComingSoon />;
 };
 
 export default Hyperion;
