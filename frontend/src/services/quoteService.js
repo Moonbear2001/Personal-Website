@@ -17,6 +17,6 @@ export async function getRandomQuote() {
     return data;
   } catch (error) {
     console.error("Failed to fetch the random quote:", error.message);
-    return { quote: "hell nah", author: "nobody", source: "my dreams" };
+    return { quote: " ", author: " ", source: " " };
   }
 }

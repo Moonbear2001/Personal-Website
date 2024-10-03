@@ -1,24 +1,19 @@
-import resumeData from "./resumeData.js";
+// Suite of functions for extracting data from the resume obj
 
-// Return the full resume object
-const getResumeData = () => {
-  return resumeData;
+const getContactData = (resumeObj) => {
+  return resumeObj.contact;
 };
 
-const getContactData = () => {
-  return resumeData.contact;
-};
-
-const getEducationData = () => {
-  return resumeData.education.map((school) => ({
+const getEducationData = (resumeObj) => {
+  return resumeObj.education.map((school) => ({
     ...school,
     startDate: new Date(school.startDate),
     endDate: school.endDate ? new Date(school.endDate) : new Date("2024-11-01"),
   }));
 };
 
-const getProjectData = () => {
-  return resumeData.projects.map((project) => ({
+const getProjectData = (resumeObj) => {
+  return resumeObj.projects.map((project) => ({
     ...project,
     startDate: new Date(project.startDate),
     endDate: project.endDate
@@ -27,8 +22,8 @@ const getProjectData = () => {
   }));
 };
 
-const getInternshipData = () => {
-  return resumeData.internships.map((internship) => ({
+const getInternshipData = (resumeObj) => {
+  return resumeObj.internships.map((internship) => ({
     ...internship,
     startDate: new Date(internship.startDate),
     endDate: internship.endDate
@@ -37,8 +32,8 @@ const getInternshipData = () => {
   }));
 };
 
-const getEmploymentData = () => {
-  return resumeData.employment.map((job) => ({
+const getEmploymentData = (resumeObj) => {
+  return resumeObj.employment.map((job) => ({
     ...job,
     startDate: new Date(job.startDate),
     endDate: job.endDate ? new Date(job.endDate) : new Date("2024-11-01"),
@@ -47,7 +42,7 @@ const getEmploymentData = () => {
 
 // Return an array of javascript objects to be put in About me timeline
 // Sorted in chronological order
-const getTimelineData = () => {
+const getTimelineData = (resumeObj) => {
   const timelineColors = {
     education: "blue.500",
     project: "red.500",
@@ -55,36 +50,32 @@ const getTimelineData = () => {
     employment: "purple.500",
   };
 
-  let educationData = getEducationData();
+  let educationData = getEducationData(resumeObj);
   educationData.forEach((entry) => {
-    // entry.label = entry.degree + "@" + entry.institution;
+    entry.type = "education";
     entry.label = entry.institution;
     entry.color = timelineColors.education;
-    entry.section = "education";
   });
 
-  let projectData = getProjectData();
+  let projectData = getProjectData(resumeObj);
   projectData.forEach((entry) => {
-    // entry.label = entry.role + "for" + entry.title;
+    entry.type = "project";
     entry.label = entry.title;
     entry.color = timelineColors.project;
-    entry.section = "project";
   });
 
-  let internshipData = getInternshipData();
+  let internshipData = getInternshipData(resumeObj);
   internshipData.forEach((entry) => {
-    // entry.label = entry.role + "@" + entry.company;
+    entry.type = "internship";
     entry.label = entry.company;
     entry.color = timelineColors.internship;
-    entry.section = "internship";
   });
 
-  let employmentData = getEmploymentData();
+  let employmentData = getEmploymentData(resumeObj);
   employmentData.forEach((entry) => {
-    // entry.label = entry.role + "@" + entry.company;
+    entry.type = "employment";
     entry.label = entry.company;
     entry.color = timelineColors.employment;
-    entry.section = "employment";
   });
 
   return [
@@ -102,5 +93,4 @@ export {
   getInternshipData,
   getEmploymentData,
   getTimelineData,
-  getResumeData,
 };

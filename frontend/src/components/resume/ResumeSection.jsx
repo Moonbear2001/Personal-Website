@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { Heading, Box } from "@chakra-ui/react";
-// import timelineColors from "../timeline/timelineConstants";
 
 const ResumeSection = ({ title, data, CardComponent }) => {
   const cardComponents = [];
@@ -10,8 +9,6 @@ const ResumeSection = ({ title, data, CardComponent }) => {
       <CardComponent key={`${title}-${index}`} data={data[index]} />
     );
   }
-
-  // bg={timelineColors[type]}
 
   return (
     <Box p={4} rounded={"lg"}>

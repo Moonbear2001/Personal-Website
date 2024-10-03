@@ -47,6 +47,7 @@ const PageHeader = ({ text, showQuote, randomQuote, comingSoon, quote }) => {
       </Flex>
       {showQuote && comingSoon && (
         <Quote
+          comingSoon={false}
           author={comingSoonQuote.author}
           quote={comingSoonQuote.quote}
           source={comingSoonQuote.source}
@@ -62,6 +63,7 @@ const PageHeader = ({ text, showQuote, randomQuote, comingSoon, quote }) => {
       )}
       {showQuote && !randomQuote && !comingSoon && (
         <Quote
+          comingSoon={false}
           author={quote.author}
           quote={quote.quote}
           source={quote.source}

@@ -1,6 +1,5 @@
 import { Container, Box, Text } from "@chakra-ui/react";
-import Timeline from "../components/timeline/Timeline";
-import TimelineKey from "../components/timeline/TimelineKey";
+import CalendarTimeline from "../components/timeline/CalendarTimeline";
 import CustomDivider from "../components/CustomDivider";
 import Resume from "../components/resume/Resume";
 import PageHeader from "../components/header/PageHeader";
@@ -29,8 +28,7 @@ const About = () => {
           {blurb}
         </Text>
         <CustomDivider />
-        <TimelineKey />
-        <Timeline />
+        <CalendarTimeline />
         <CustomDivider />
         <Resume />
       </Box>

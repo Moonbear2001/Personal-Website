@@ -18,7 +18,7 @@ const LogoLink = ({ website, logo, altText }) => {
 };
 
 LogoLink.propTypes = {
-  website: PropTypes.string.isRequired,
+  website: PropTypes.string,
   logo: PropTypes.string.isRequired,
   altText: PropTypes.string.isRequired,
 };

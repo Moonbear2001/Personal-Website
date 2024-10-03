@@ -1,5 +1,7 @@
 import { HStack, Box, Text } from "@chakra-ui/react";
 
+// Not using atm because there are no colors on timeline
+
 const TimelineKey = () => {
   return (
     <HStack mb={8} spacing={4} align="center">
