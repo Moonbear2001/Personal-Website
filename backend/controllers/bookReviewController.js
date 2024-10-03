@@ -163,3 +163,23 @@ export const getBookReviewGenres = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+export const getBookReviewFrequency = async (req, res) => {
+  try {
+    const frequencyData = await BookReviewModel.aggregate([
+      {
+        $group: {
+          _id: {
+            $dateToString: { format: "%Y-%m", date: "$endDate" },
+          },
+          count: { $sum: 1 },
+        },
+      },
+      { $sort: { _id: 1 } },
+    ]);
+    console.log("Frequency data in backend: ", frequencyData);
+    res.json(frequencyData);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};

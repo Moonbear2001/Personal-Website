@@ -7,6 +7,7 @@ import {
   updateBookReviewById,
   deleteBookReviewById,
   getBookReviewGenres,
+  getBookReviewFrequency,
 } from "../controllers/bookReviewController.js";
 
 const router = express.Router();
@@ -31,5 +32,8 @@ router.delete("/:id", deleteBookReviewById);
 
 // Get book review genre data
 router.get("/data/genres", getBookReviewGenres);
+
+// Get book reading frequency data
+router.get("/data/frequency", getBookReviewFrequency);
 
 export default router;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Container, Box, VStack, Text, Heading } from "@chakra-ui/react";
+import { Grid, Container, Box, VStack, Text, Heading } from "@chakra-ui/react";
 import PageHeader from "../components/header/PageHeader";
 import SearchBar from "../components/bookReview/SearchBar";
 import BookReview from "../components/bookReview/BookReview";
@@ -7,7 +7,8 @@ import CustomDivider from "../components/CustomDivider";
 
 import CenterMode from "../components/bookReview/BookHighlightCarousel";
 import GenrePieChart from "../components/bookReview/GenrePieChart";
-import TestPieChart from "../components/bookReview/TestPieChart";
+import FrequencyLineChart from "../components/bookReview/FrequencyLineChart";
+import MyResponsiveLine from "../components/bookReview/FrequencyLineChart";
 
 const blurb = `When you've been into movies, TV, book, albums, hikes, or any other kind of hobby for long enough, you lose complete track of what you watched/read/listened/done and what you thought about it at the time. As a long-time avid reader, I've lost track of the majority of books I've read. I use this part of my website to track the books I've read and what I thought about each. The reviews might be extremely candid and terse depending on the kind of day of was having when I finished the book, but I'll try to give every book its fair shot.\n\nThis database began on October 1st, 2024, so if you're a visitor soon after that date, you may not see much. Fear not, I will continue to add reviews of the books that I read and it will quickly fill up.\n\nCheck out the highlights to see some of my favorite titles that I felt deserved special recognition. They have each received their own customized and stylized page to match their aesthetic.`;
 
@@ -66,7 +67,7 @@ const BookReviews = () => {
       <CustomDivider />
 
       {/* Carousel */}
-      <Heading fontSize="4xl" mb={4}>
+      <Heading fontSize="4xl" mb={10}>
         Highlights
       </Heading>
       <CenterMode></CenterMode>
@@ -75,16 +76,18 @@ const BookReviews = () => {
       <Heading fontSize="4xl" mb={4}>
         Reading data
       </Heading>
-      {/* <GenrePieChart /> */}
-      {/* <Box width={"full"} height={"800px"}>
-        <TestPieChart></TestPieChart>
-      </Box> */}
 
-      <Box width={"full"} height={"800px"}>
-        <GenrePieChart></GenrePieChart>
+      <Box width={"full"} height={"600px"}>
+        <Grid templateColumns="1fr 1fr" height="100%" alignItems="center">
+          <GenrePieChart />
+          <FrequencyLineChart />
+        </Grid>
       </Box>
 
       <CustomDivider />
+      <Heading fontSize="4xl" mb={4}>
+        Search the database.
+      </Heading>
       <SearchBar onSearch={handleSearch} />
 
       <VStack spacing={4} align="stretch">

@@ -4,13 +4,12 @@ import { Box, Text } from "@chakra-ui/react";
 import { getGenreData } from "../../services/bookReviewService.js";
 
 const GenrePieChart = () => {
-  const [pieData, setPieData] = useState([]); // Initialize as empty array
+  const [pieData, setPieData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Get genre data from backend
         const genreData = await getGenreData();
         console.log("genreData: ", genreData);
 
@@ -51,7 +50,7 @@ const GenrePieChart = () => {
   }
 
   return (
-    <Box style={{ height: "400px" }}>
+    <Box style={{ height: "500px" }}>
       <ResponsivePie
         data={pieData}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
