@@ -13,6 +13,7 @@ const Tutoring = () => {
     <Container maxWidth="1200px" p={4} centerContent>
       <Box bg="gray.300" mx={10} position="relative">
         <PageHeader
+          quote={quote}
           text="Tutoring."
           showQuote={true}
           randomQuote={false}
