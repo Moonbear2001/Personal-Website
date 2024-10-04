@@ -9,23 +9,24 @@ import {
   getBookReviewGenres,
   getBookReviewFrequency,
 } from "../controllers/bookReviewController.js";
+import authenticateToken from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
+// Save a new review
+router.post("/", authenticateToken, createBookReview);
+
+// Update a book review by id
+router.put("/:id", authenticateToken, updateBookReviewById);
+
 // Get all book reviews from the database
 router.get("/", getAllBookReviews);
-
-// Save a new review
-router.post("/", createBookReview);
 
 // Get a book review by id
 router.get("/:id", getBookReviewById);
 
 // Get a book review by title
 router.get("/title/:title", getBookReviewByTitle);
-
-// Update a book review by id
-router.put("/:id", updateBookReviewById);
 
 // Delete a book review by id
 router.delete("/:id", deleteBookReviewById);

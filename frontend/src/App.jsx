@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Freelance from "./pages/Freelance";
 import BookReviews from "./pages/BookReviews";
 import BookReviewEntry from "./pages/BookReviewEntry";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -18,7 +19,11 @@ function App() {
       <Route path="/tutoring" element={<Tutoring />} />
       <Route path="/freelance" element={<Freelance />} />
       <Route path="/bookReviews" element={<BookReviews />} />
-      <Route path="/bookReviewEntry" element={<BookReviewEntry />} />
+      <Route
+        path={`/${import.meta.env.VITE_REVIEW_ENTRY_PATH}`}
+        element={<BookReviewEntry />}
+      />
+      <Route path={`/${import.meta.env.VITE_LOGIN_PATH}`} element={<Login />} />
     </Routes>
   );
 }
