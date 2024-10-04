@@ -65,8 +65,8 @@ export const updateBookReviewById = async (req, res) => {
   const { id } = req.params;
   const {
     title,
-    author,
-    genre,
+    authors,
+    genres,
     publicationDate,
     series,
     reviewText,
@@ -86,8 +86,8 @@ export const updateBookReviewById = async (req, res) => {
       req.params.id,
       {
         title,
-        author,
-        genre,
+        authors,
+        genres,
         publicationDate,
         series,
         reviewText,

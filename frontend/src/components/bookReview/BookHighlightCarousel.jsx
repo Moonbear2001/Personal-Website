@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { Box, Image } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -16,15 +14,12 @@ const settings = {
 const highlights = [
   {
     url: "/bookHighlights/neuromancer/neuromancer-cover-narrow.jpg",
-    link: "/bookReviews/neuromancer",
   },
   {
     url: "/bookHighlights/hyperion/hyperion-modern-cover-narrow.jpg",
-    link: "/bookReviews/hyperion",
   },
   {
     url: "/bookHighlights/theGunSlinger/gunslinger-cover-narrow.jpg",
-    link: "/bookReviews/gunslinger",
   },
 ];
 
@@ -33,15 +28,14 @@ function CenterMode() {
     <Box height="300px" display="block" width="90%">
       <Slider {...settings}>
         {highlights.map((highlight, index) => (
-          <Link key={index} to={highlight.link}>
-            <Image
-              src={highlight.url}
-              alt="Example Image"
-              objectFit="contain"
-              height="300px"
-              width="inherit"
-            />
-          </Link>
+          <Image
+            key={index}
+            src={highlight.url}
+            alt="Example Image"
+            objectFit="contain"
+            height="300px"
+            width="inherit"
+          />
         ))}
       </Slider>
     </Box>

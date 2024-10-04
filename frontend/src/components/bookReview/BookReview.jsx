@@ -9,7 +9,7 @@ const BookReview = ({ review }) => {
           <Image
             src={review.coverImage}
             alt={review.title}
-            boxSize="100px"
+            boxSize="150px"
             objectFit="cover"
             borderRadius="md"
             mr={4}
@@ -19,7 +19,7 @@ const BookReview = ({ review }) => {
           <Text fontWeight="bold" fontSize="lg">
             {review.title}
           </Text>
-          <Text color="gray.600">by {review.author}</Text>
+          <Text color="gray.600">by {review.authors[0]}</Text>
           <Text color="gray.600">
             {new Date(review.reviewDate).toLocaleDateString()}
           </Text>
@@ -44,8 +44,8 @@ const BookReview = ({ review }) => {
 BookReview.propTypes = {
   review: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    genre: PropTypes.arrayOf(PropTypes.string),
+    authors: PropTypes.arrayOf(PropTypes.string),
+    genres: PropTypes.arrayOf(PropTypes.string),
     publicationDate: PropTypes.instanceOf(Date),
     series: PropTypes.shape({
       name: PropTypes.string,

@@ -70,7 +70,7 @@ const BookReviewForm = () => {
             },
             body: JSON.stringify({
               quote: quote,
-              author: bookReview.author,
+              authors: bookReview.authors,
               source: bookReview.title,
             }),
           });
@@ -128,13 +128,13 @@ const BookReviewForm = () => {
             </FormControl>
 
             <FormControl isRequired>
-              <FormLabel>Author</FormLabel>
+              <FormLabel>Authors</FormLabel>
               <Input
                 borderColor="black"
                 borderWidth="2px"
                 _focus={{ borderColor: "black" }}
-                name="author"
-                value={bookReview.author}
+                name="authors"
+                value={bookReview.authors}
                 onChange={handleChange}
               />
             </FormControl>

@@ -1,5 +1,6 @@
 import { Container, Box } from "@chakra-ui/react";
 import PageHeader from "../components/header/PageHeader";
+import ComingSoon from "../components/ComingSoon";
 
 const quote = {
   quote:
@@ -19,6 +20,7 @@ const Portfolio = () => {
           quote={quote}
         />
       </Box>
+      <ComingSoon />
     </Container>
   );
 };

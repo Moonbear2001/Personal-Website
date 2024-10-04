@@ -16,6 +16,7 @@ const SearchBar = ({ onSearch }) => {
       <Input
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
+        onKeyDown={search}
         borderWidth="2px"
         borderColor="black"
         bg="gray.100"
@@ -32,6 +33,7 @@ const SearchBar = ({ onSearch }) => {
         type="submit"
         borderWidth="2px"
         borderColor="black"
+        textColor={"white"}
       >
         Search
       </Button>
