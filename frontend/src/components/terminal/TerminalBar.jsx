@@ -1,12 +1,40 @@
-// TerminalBar.jsx
 import { useEffect, useRef, useState } from "react";
-import { Box, Input } from "@chakra-ui/react";
-import { evaluateCommand } from "./terminalEval";
+import { Box, Input, Text } from "@chakra-ui/react";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 const TerminalBar = ({ isVisible }) => {
   const [command, setCommand] = useState("");
+  const [showHelp, setShowHelp] = useState(false); // State to control help visibility
   const inputRef = useRef(null);
+  const navigate = useNavigate();
+
+  // Evaluate command
+  const evaluateCommand = (command) => {
+    const pages = [
+      "..",
+      "home",
+      "about",
+      "contact",
+      "portfolio",
+      "bookReviews",
+    ];
+    const tokens = command.toLowerCase().split(" ");
+
+    if (tokens[0] === "cd") {
+      if (pages.includes(tokens[1])) {
+        if (tokens[1] === "home" || tokens[1] === "..") {
+          navigate("/");
+        } else {
+          navigate(`/${tokens[1]}`);
+        }
+      }
+    } else if (tokens[0] === "help") {
+      setShowHelp(true); // Show the help popup
+    } else {
+      setShowHelp(false); // Hide help if any other command is typed
+    }
+  };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -18,6 +46,10 @@ const TerminalBar = ({ isVisible }) => {
   useEffect(() => {
     if (inputRef.current && isVisible) {
       inputRef.current.focus();
+    }
+    // Hide help popup when terminal is closed
+    if (!isVisible) {
+      setShowHelp(false);
     }
   }, [isVisible]);
 
@@ -45,6 +77,7 @@ const TerminalBar = ({ isVisible }) => {
           boxShadow="lg"
           width="900px"
           borderRadius="md"
+          p={4} // Added padding for better spacing
         >
           <Input
             ref={inputRef}
@@ -58,6 +91,44 @@ const TerminalBar = ({ isVisible }) => {
             color="white"
             bg="gray.800"
           />
+          {/* Help popup appears below the terminal */}
+          {showHelp && (
+            <Box
+              mt={2}
+              p={4}
+              bg="gray.700"
+              color="white"
+              borderRadius="md"
+              boxShadow="md"
+            >
+              <Text fontWeight="bold">NAME</Text>
+              <Text ml={4}>cd - change the current page</Text>
+
+              <Text fontWeight="bold" mt={2}>
+                SYNOPSIS
+              </Text>
+              <Text ml={4}>cd [OPTION]... [PAGE]</Text>
+
+              <Text fontWeight="bold" mt={2}>
+                DESCRIPTION
+              </Text>
+              <Text ml={4}>
+                The cd command is used to navigate between different pages of
+                the website.
+              </Text>
+
+              <Text ml={4} mt={2}>
+                Available pages:
+              </Text>
+              <Text ml={6}>home - Navigate to the homepage</Text>
+              <Text ml={6}>about - Navigate to the about page</Text>
+              <Text ml={6}>contact - Navigate to the contact page</Text>
+              <Text ml={6}>portfolio - Navigate to the portfolio page</Text>
+              <Text ml={6}>
+                bookReviews - Navigate to the book reviews page
+              </Text>
+            </Box>
+          )}
         </Box>
       )}
     </>
