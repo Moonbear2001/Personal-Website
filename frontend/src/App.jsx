@@ -7,7 +7,7 @@ import About from "./pages/About";
 import Freelance from "./pages/Freelance";
 import BookReviews from "./pages/BookReviews";
 import BookReviewEntry from "./pages/BookReviewEntry";
-import Login from "./pages/Login";
+import Login from "./pages/Login"
 
 function App() {
   return (

@@ -1,3 +1,5 @@
+import jwt from "jsonwebtoken";
+
 // Verify login and respond
 export const login = async (req, res) => {
   const { username, password } = req.body;

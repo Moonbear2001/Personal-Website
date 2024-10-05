@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import {
   Box,
   Button,
@@ -20,17 +19,29 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
+    console.log(JSON.stringify({ username, password }));
+
     try {
-      const response = await axios.post("/api/v1/login", {
-        username,
-        password,
+      const response = await fetch("/api/v1/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
       });
-      const token = response.data.token;
+
+      if (!response.ok) {
+        throw new Error("Invalid credentials");
+      }
+
+      const data = await response.json();
+      const token = data.token;
 
       // Store the token in localStorage
       localStorage.setItem("token", token);
 
       // Redirect or perform further actions
+      console.log("navigate");
       navigate(`/${import.meta.env.VITE_REVIEW_ENTRY_PATH}`);
     } catch (err) {
       setError("Invalid credentials");

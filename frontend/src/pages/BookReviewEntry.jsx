@@ -14,7 +14,14 @@ import {
 } from "@chakra-ui/react";
 
 const BookReviewForm = () => {
-  const [bookReview, setBookReview] = useState({});
+  const [bookReview, setBookReview] = useState({
+    themes: [],
+    favoriteCharacters: [],
+    relatedVideos: [],
+    tags: [],
+    quotes: [],
+    genres: [],
+  });
 
   const toast = useToast();
 
@@ -30,11 +37,13 @@ const BookReviewForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Book Review Data:", bookReview);
+    const token = localStorage.getItem("token");
     try {
-      const response = await fetch("/api/v1/bookReview", {
+      const response = await fetch("/api/v1/bookReviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
         },
         body: JSON.stringify(bookReview),
       });
@@ -60,42 +69,42 @@ const BookReviewForm = () => {
         isClosable: true,
       });
     }
-    if ("quotes" in bookReview) {
-      for (const quote of bookReview.quotes) {
-        try {
-          const response = await fetch("/api/v1/quote", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              quote: quote,
-              authors: bookReview.authors,
-              source: bookReview.title,
-            }),
-          });
-          if (!response.ok) {
-            throw new Error("Network response was not ok.");
-          }
-          const data = await response.json();
-          console.log(data);
 
-          toast({
-            title: "Success",
-            description: "Quote saved.",
-            status: "success",
-            duration: 5000,
-            isClosable: true,
-          });
-        } catch (error) {
-          toast({
-            title: "Failed to save quote.",
-            description: `${error}`,
-            status: "error",
-            duration: 5000,
-            isClosable: true,
-          });
+    // Save quotes to db
+    for (const quote of bookReview.quotes) {
+      try {
+        const response = await fetch("/api/v1/quote", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            quote: quote,
+            authors: bookReview.authors,
+            source: bookReview.title,
+          }),
+        });
+        if (!response.ok) {
+          throw new Error("Network response was not ok.");
         }
+        const data = await response.json();
+        console.log(data);
+
+        toast({
+          title: "Success",
+          description: "Quote saved.",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+      } catch (error) {
+        toast({
+          title: "Failed to save quote.",
+          description: `${error}`,
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
       }
     }
   };
@@ -356,7 +365,7 @@ const BookReviewForm = () => {
             </FormControl>
 
             <FormControl>
-              <FormLabel>Themes (don't end with comma)</FormLabel>
+              <FormLabel>Themes (don&apos;t end with comma)</FormLabel>
               <Textarea
                 borderColor="black"
                 borderWidth="2px"
@@ -367,7 +376,7 @@ const BookReviewForm = () => {
                   setBookReview((prev) => ({
                     ...prev,
                     themes: e.target.value
-                      .split(",")
+                      .split(", ")
                       .map((theme) => theme.toLowerCase()),
                   }))
                 }
@@ -375,7 +384,9 @@ const BookReviewForm = () => {
             </FormControl>
 
             <FormControl>
-              <FormLabel>Favorite Characters (don't end with comma)</FormLabel>
+              <FormLabel>
+                Favorite Characters (don&apos;t end with comma)
+              </FormLabel>
               <Textarea
                 borderColor="black"
                 borderWidth="2px"
@@ -385,14 +396,14 @@ const BookReviewForm = () => {
                 onChange={(e) =>
                   setBookReview((prev) => ({
                     ...prev,
-                    favoriteCharacters: e.target.value.split(","),
+                    favoriteCharacters: e.target.value.split(", "),
                   }))
                 }
               />
             </FormControl>
 
             <FormControl>
-              <FormLabel>Related Videos (don't end with comma)</FormLabel>
+              <FormLabel>Related Videos (don&apos;t end with comma)</FormLabel>
               <Textarea
                 borderColor="black"
                 borderWidth="2px"
@@ -402,14 +413,14 @@ const BookReviewForm = () => {
                 onChange={(e) =>
                   setBookReview((prev) => ({
                     ...prev,
-                    relatedVideos: e.target.value.split(","),
+                    relatedVideos: e.target.value.split(", "),
                   }))
                 }
               />
             </FormControl>
 
             <FormControl>
-              <FormLabel>Tags (don't end with comma)</FormLabel>
+              <FormLabel>Tags (don&apos;t end with comma)</FormLabel>
               <Textarea
                 borderColor="black"
                 borderWidth="2px"
@@ -419,14 +430,16 @@ const BookReviewForm = () => {
                 onChange={(e) =>
                   setBookReview((prev) => ({
                     ...prev,
-                    tags: e.target.value.split(",").map((tag) => tag.toLower()),
+                    tags: e.target.value
+                      .split(", ")
+                      .map((tag) => tag.toLowerCase()),
                   }))
                 }
               />
             </FormControl>
 
             <FormControl>
-              <FormLabel>Quotes (don't end with comma)</FormLabel>
+              <FormLabel>Quotes (don&apos;t end with comma)</FormLabel>
               <Textarea
                 borderColor="black"
                 borderWidth="2px"
@@ -436,14 +449,14 @@ const BookReviewForm = () => {
                 onChange={(e) =>
                   setBookReview((prev) => ({
                     ...prev,
-                    quotes: e.target.value.split(","),
+                    quotes: e.target.value.split(", "),
                   }))
                 }
               />
             </FormControl>
 
             <FormControl>
-              <FormLabel>Genres (don't end with comma)</FormLabel>
+              <FormLabel>Genres (don&apos;t end with comma)</FormLabel>
               <Textarea
                 borderColor="black"
                 borderWidth="2px"
@@ -454,8 +467,8 @@ const BookReviewForm = () => {
                   setBookReview((prev) => ({
                     ...prev,
                     genres: e.target.value
-                      .split(",")
-                      .map((genre) => genre.toLower()),
+                      .split(", ")
+                      .map((genre) => genre.toLowerCase()),
                   }))
                 }
               />
