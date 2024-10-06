@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Box, Text, VStack, Image, Flex } from "@chakra-ui/react";
+import { Box, Text, VStack, Image, Flex, Link, HStack } from "@chakra-ui/react";
 
 const BookReview = ({ review }) => {
   return (
@@ -34,6 +34,18 @@ const BookReview = ({ review }) => {
             <Text fontSize="sm" color="gray.500">
               Quotes: {review.quotes.join(", ")}
             </Text>
+          )}
+          {review.relatedVideos && review.relatedVideos.length > 0 && (
+            <HStack align="start" mt={2} spacing={1}>
+              <Text fontSize="sm" color="gray.500">
+                Related Videos:
+              </Text>
+              {review.relatedVideos.map((video, index) => (
+                <Link key={index} href={video} color="blue.500" isExternal>
+                  {`Video ${index + 1}, `}
+                </Link>
+              ))}
+            </HStack>
           )}
         </VStack>
       </Flex>
