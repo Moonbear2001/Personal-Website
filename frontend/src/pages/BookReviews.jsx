@@ -49,6 +49,7 @@ const BookReviews = () => {
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
+      console.log(data);
       setFilteredReviews(data.data); // Set all found reviews
     } catch (error) {
       console.error("Error searching for book review:", error);
