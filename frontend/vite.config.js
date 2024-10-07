@@ -11,7 +11,7 @@ export default defineConfig({
     },
     proxy: {
       "/api": {
-        target: "http://localhost:5555",
+        target: "https://personal-website-7k5g.onrender.com",
         changeOrigin: true,
         rewrite: (path) => path.replace("/^/api/", ""),
       },
