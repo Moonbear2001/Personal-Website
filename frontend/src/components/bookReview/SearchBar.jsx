@@ -6,9 +6,10 @@ import { Input, Button, HStack } from "@chakra-ui/react";
 const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const search = () => {
-    console.log("in on search");
-    onSearch(searchTerm);
+  const search = (e) => {
+    if (e.key === "Enter") {
+      onSearch(searchTerm);
+    }
   };
 
   return (
@@ -42,7 +43,7 @@ const SearchBar = ({ onSearch }) => {
 };
 
 SearchBar.propTypes = {
-  handleSearch: PropTypes.func.isRequired,
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

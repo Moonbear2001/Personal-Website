@@ -11,7 +11,6 @@ const GenrePieChart = () => {
     const fetchData = async () => {
       try {
         const genreData = await getGenreData();
-        console.log("genreData: ", genreData);
 
         // Convert the genre data to the format required by Nivo
         const tempPieData = genreData.map((genre) => ({
@@ -20,7 +19,6 @@ const GenrePieChart = () => {
           value: genre.count,
         }));
         setPieData(tempPieData);
-        console.log("Pie data: ", pieData); // Log the transformed data
 
         setLoading(false);
       } catch (error) {
@@ -32,16 +30,11 @@ const GenrePieChart = () => {
     fetchData();
   }, []);
 
-  // useEffect(() => {
-  //   console.log("Updated Pie Data: ", pieData); // Log when pieData changes
-  // }, [pieData]);
-
   if (loading) {
     return <div>Loading...</div>;
   }
 
   if (pieData.length === 0) {
-    console.log("NO PIE DATA");
     return (
       <Box>
         <Text>Error getting reading data.</Text>

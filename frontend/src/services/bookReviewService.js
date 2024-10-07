@@ -7,7 +7,6 @@ export async function getGenreData() {
     }
 
     const data = await response.json();
-    console.log("Genre data in frontend service: ", data);
     return data;
   } catch (error) {
     console.error("Failed to fetch genre data:", error.message);
@@ -24,7 +23,6 @@ export async function getFrequencyData() {
     }
 
     const data = await response.json();
-    console.log("Frequency data in frontend service: ", data);
     return data;
   } catch (error) {
     console.error("Failed to fetch frequency data:", error.message);

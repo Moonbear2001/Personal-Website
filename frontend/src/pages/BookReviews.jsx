@@ -4,7 +4,6 @@ import PageHeader from "../components/header/PageHeader";
 import SearchBar from "../components/bookReview/SearchBar";
 import BookReview from "../components/bookReview/BookReview";
 import CustomDivider from "../components/CustomDivider";
-
 import CenterMode from "../components/bookReview/BookHighlightCarousel";
 import GenrePieChart from "../components/bookReview/GenrePieChart";
 import FrequencyLineChart from "../components/bookReview/FrequencyLineChart";
@@ -13,7 +12,7 @@ const blurb = `When you've been into movies, TV, book, albums, hikes, or any oth
 
 const BookReviews = () => {
   const [bookReviews, setBookReviews] = useState([]);
-  const [filteredReview, setFilteredReview] = useState(null);
+  const [filteredReviews, setFilteredReviews] = useState([]); // Change to an array
 
   useEffect(() => {
     const fetchBookReviews = async () => {
@@ -27,8 +26,6 @@ const BookReviews = () => {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        console.log("Books: ", data.data);
-
         setBookReviews(data.data);
       } catch (error) {
         console.error("Error fetching book reviews:", error);
@@ -38,16 +35,24 @@ const BookReviews = () => {
     fetchBookReviews();
   }, []);
 
-  const handleSearch = (searchTerm) => {
-    console.log("in search");
-    console.log("Book reviews: ", bookReviews);
-    const foundReview = bookReviews.find(
-      (review) =>
-        review.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        review._id.includes(searchTerm)
-    );
-
-    setFilteredReview(foundReview || null);
+  const handleSearch = async (searchTerm) => {
+    try {
+      const response = await fetch(
+        `/api/v1/bookReviews/search/${encodeURIComponent(searchTerm)}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      setFilteredReviews(data.data); // Set all found reviews
+    } catch (error) {
+      console.error("Error searching for book review:", error);
+    }
   };
 
   return (
@@ -69,7 +74,7 @@ const BookReviews = () => {
       <Heading fontSize="4xl" mb={10}>
         Highlights
       </Heading>
-      <CenterMode></CenterMode>
+      <CenterMode />
 
       <CustomDivider />
       <Heading fontSize="4xl" mb={4}>
@@ -90,10 +95,12 @@ const BookReviews = () => {
       <SearchBar onSearch={handleSearch} />
 
       <VStack spacing={4} align="stretch">
-        {filteredReview ? (
-          <BookReview review={filteredReview} />
+        {filteredReviews.length > 0 ? (
+          filteredReviews.map((review) => (
+            <BookReview key={review._id} review={review} />
+          ))
         ) : (
-          <Text>No book review found.</Text>
+          <Text>No book reviews found.</Text>
         )}
       </VStack>
     </Container>

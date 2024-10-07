@@ -8,6 +8,7 @@ import {
   deleteBookReviewById,
   getBookReviewGenres,
   getBookReviewFrequency,
+  searchBookReviewByTitle,
 } from "../controllers/bookReviewController.js";
 import authenticateToken from "../middleware/authMiddleware.js";
 
@@ -36,5 +37,8 @@ router.get("/data/genres", getBookReviewGenres);
 
 // Get book reading frequency data
 router.get("/data/frequency", getBookReviewFrequency);
+
+// Search for a book review by title
+router.get("/search/:title", searchBookReviewByTitle);
 
 export default router;

@@ -36,14 +36,13 @@ const BookReviewForm = () => {
   // Upload the book review and each quote to their dbs
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Book Review Data:", bookReview);
     const token = localStorage.getItem("token");
     try {
       const response = await fetch("/api/v1/bookReviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(bookReview),
       });
@@ -51,7 +50,6 @@ const BookReviewForm = () => {
         throw new Error("Network response was not ok.");
       }
       const data = await response.json();
-      console.log("Book review response: ", data);
 
       toast({
         title: "Success",
@@ -88,7 +86,6 @@ const BookReviewForm = () => {
           throw new Error("Network response was not ok.");
         }
         const data = await response.json();
-        console.log(data);
 
         toast({
           title: "Success",

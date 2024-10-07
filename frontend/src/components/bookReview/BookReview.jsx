@@ -1,5 +1,15 @@
 import PropTypes from "prop-types";
-import { Box, Text, VStack, Image, Flex, Link, HStack } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  VStack,
+  Image,
+  Flex,
+  Link,
+  HStack,
+  UnorderedList,
+  ListItem,
+} from "@chakra-ui/react";
 
 const BookReview = ({ review }) => {
   return (
@@ -30,11 +40,22 @@ const BookReview = ({ review }) => {
           <Text fontSize="sm" color="gray.500">
             Silly Rating: {review.sillyRating}
           </Text>
+
           {review.quotes && review.quotes.length > 0 && (
-            <Text fontSize="sm" color="gray.500">
-              Quotes: {review.quotes.join(", ")}
-            </Text>
+            <VStack align="start" spacing={1} mt={2}>
+              <Text fontSize="sm" color="gray.500">
+                Quotes:
+              </Text>
+              <UnorderedList spacing={1}>
+                {review.quotes.map((quote, index) => (
+                  <ListItem key={index} fontSize="sm" color="gray.600">
+                    {quote}
+                  </ListItem>
+                ))}
+              </UnorderedList>
+            </VStack>
           )}
+
           {review.relatedVideos && review.relatedVideos.length > 0 && (
             <HStack align="start" mt={2} spacing={1}>
               <Text fontSize="sm" color="gray.500">

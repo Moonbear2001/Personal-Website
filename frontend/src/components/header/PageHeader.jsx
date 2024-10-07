@@ -22,9 +22,7 @@ const PageHeader = ({ text, showQuote, randomQuote, comingSoon, quote }) => {
   useEffect(() => {
     if (showQuote && randomQuote) {
       getRandomQuote().then((randomQuoteData) => {
-        console.log("Random quote data: ", randomQuoteData);
         setRandomQuoteObj(randomQuoteData);
-        console.log("Random quote obj: ", randomQuoteObj);
         setLoading(false);
       });
     } else {

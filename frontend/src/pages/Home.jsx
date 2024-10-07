@@ -1,6 +1,7 @@
 import { Container, Image, Grid, GridItem, Text, Box } from "@chakra-ui/react";
 import LinkCard from "../components/header/LinkCard";
 import PageHeader from "../components/header/PageHeader";
+import WelcomeMessage from "../components/messages/WelcomeMessage";
 
 const cards = [
   {
@@ -43,6 +44,7 @@ const cards = [
 function HomePage() {
   return (
     <Container maxWidth="1200px" p={4} centerContent>
+      <WelcomeMessage />
       <Box bg="gray.300" mx={10} position="relative">
         <PageHeader
           text="Welcome."

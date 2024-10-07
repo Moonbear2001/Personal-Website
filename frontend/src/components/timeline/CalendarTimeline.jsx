@@ -20,10 +20,8 @@ const CalendarTimeline = () => {
       try {
         const data = await getResumeData();
         setResumeData(data);
-        console.log("resume data: ", data);
 
         const timelineData = getTimelineData(data);
-        console.log("timeline data: ", timelineData);
 
         // Prepare groups and items from timelineData
         const newGroups = timelineData.map((item, index) => ({

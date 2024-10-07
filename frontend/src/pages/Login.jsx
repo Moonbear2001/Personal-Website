@@ -19,8 +19,6 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    console.log(JSON.stringify({ username, password }));
-
     try {
       const response = await fetch("/api/v1/login", {
         method: "POST",
@@ -41,7 +39,6 @@ const Login = () => {
       localStorage.setItem("token", token);
 
       // Redirect or perform further actions
-      console.log("navigate");
       navigate(`/${import.meta.env.VITE_REVIEW_ENTRY_PATH}`);
     } catch (err) {
       setError("Invalid credentials");

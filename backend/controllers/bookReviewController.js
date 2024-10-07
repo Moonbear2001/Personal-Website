@@ -157,7 +157,6 @@ export const getBookReviewGenres = async (req, res) => {
         $sort: { count: -1 }, // Sort by count in descending order
       },
     ]);
-    console.log("Genre data in backend: ", genreData);
     res.json(genreData);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -177,9 +176,25 @@ export const getBookReviewFrequency = async (req, res) => {
       },
       { $sort: { _id: 1 } },
     ]);
-    console.log("Frequency data in backend: ", frequencyData);
     res.json(frequencyData);
   } catch (error) {
     res.status(500).json({ error: error.message });
+  }
+};
+
+export const searchBookReviewByTitle = async (req, res) => {
+  const { title } = req.params;
+
+  try {
+    const reviews = await BookReviewModel.find({
+      title: { $regex: title, $options: "i" },
+    });
+
+    res.json({ data: reviews });
+  } catch (error) {
+    console.error("Error fetching book reviews:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while fetching the reviews." });
   }
 };

@@ -67,10 +67,8 @@ const FrequencyLineChart = () => {
     const fetchData = async () => {
       try {
         const frequencyData = await getFrequencyData();
-        console.log("frequencyData: ", frequencyData);
 
         setLineData(transformData(frequencyData));
-        console.log("lineData: ", lineData);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching reviews:", error);
@@ -86,7 +84,6 @@ const FrequencyLineChart = () => {
       x: item._id,
       y: item.count,
     }));
-    console.log("Transformed data: ", data);
     return [
       {
         id: "Books Read",
